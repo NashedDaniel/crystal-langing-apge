@@ -1,0 +1,104 @@
+{
+  "Index": {
+    "LOGIN": "LOGIN",
+    "English": "English",
+    "Arabic": "Arabic",
+    "crystalSoft": "Crystal Soft",
+    "featuresTitle": "Check our Features",
+    "hero": {
+    "title_part1": "Welcome to",
+    "title_part2": "Crystal Soft",
+    "description": " is a leading software company in Egypt. We have been established since 2001 and specialize in software development & applications, as well as providing consulting and technical support services."
+  },
+    "features": {
+      "integratedSystem": {
+        "title": "Integrated System",
+        "description": "The crystal system combines many specialized and integrated systems in all its parts, which makes it easy to update, develop and modify for customers to comply with the development and growth of their organizations."
+      },
+      "dataQuality": {
+        "title": "Data Quality",
+        "description": "The integrated Crystal View system provides the effort of searching the books and works to organize documents and statements and extract detailed reports with ease and high quality."
+      },
+      "saveTime": {
+        "title": "Save Time",
+        "description": "Crystal View system provides the necessary time to conduct administrative and accounting operations in record time and helps in issuing reports, financial statements, audit and others."
+      },
+      "easeOfUse": {
+        "title": "Ease of Use",
+        "description": "Ease of use is considered the most important features of Crystal software, as the company is working on developing its products to facilitate use in crystal systems and programs."
+      }
+    },
+    "about": {
+      "title": "About Us",
+      "description": {
+        "part1": "Crystal Soft",
+        "part2": "is a leading software company in Egypt.",
+        "part3": "has been established since 2001 and specializes in software development and applications and also specializes in providing consulting and technical support services, We bring a wide range of software solutions for small and medium-sized businesses and large companies along with training."
+      },
+      "features": {
+        "stability": "Stability and security of corporate databases.",
+        "backup": "Backup databases periodically, to ensure data integrity.",
+        "accounting": "Crystal View is a leading provider of accounting software.",
+        "erp": "Crystal View ERP for business management software solutions."
+      }
+    },
+    "erp": {
+    "title": "ERP",
+    "subtitle": "System",
+    "intro": "Crystal Soft is a Leading Provider of accounting software, best ERP software, human resources & payroll, and other software solutions.",
+    "question": "What is Crystal Soft ERP?",
+    "answer": "Crystal Soft is a leading software company in Egypt,It has been established since 2001 and specializes in software development and applications, The company also offers consulting and technical support services, delivering a range of solutions for small and medium-sized businesses and large enterprises. "
+
+  },
+   "access": {
+    "title_part1": "Access from",
+    "title_part2": "Multiple Devices",
+    "intro": "We Troubleshooting, Troubleshooting, Solving network problems, installing software, and develop existing programs.",
+    "question": "How does Crystal View support device access?",
+   "answer": "With its responsive design and adaptive user interface, Crystal View adapts seamlessly to different devices such as desktops, laptops, tablets, and smartphones, providing a consistent user experience. This flexibility allows employees, managers, and stakeholders to access and interact with critical business data, monitor real-time updates, and perform essential tasks from anywhere, whether they are in the office, on the go, or working remotely."
+  },
+  "cloud": {
+    "title_part1": "Cloud",
+    "title_part2": "Hosting",
+    "intro": "Our goal is to support the business, industrial, education and health sectors in Egypt and the Middle East with software solutions.",
+    "question": "How does Crystal View use cloud hosting?",
+    "answer": "By leveraging the power of cloud technology, Crystal View enables efficient collaboration, streamlined workflows, and data synchronization across multiple devices, empowering organizations to make informed decisions, optimize resource allocation, and drive productivity regardless of physical boundaries."
+  },
+  "testimonials":{
+     "title": "Testimonials",
+    "subtitle": "What People are Saying...",
+    "testimonials":
+   [
+    {
+      "name": "Dr. Mohamed Al Henawy",
+      "title": "Surgeon",
+      "text": "The Crystal program is one of the best programs I have worked on because it has all your needs. It has strong reports for any employer and is easy to deal with. The most important need is also that the after-sales service exists and continues in a positive way, which is to distinguish any respectable program."
+    },
+    {
+      "name": "Monay Lamaay Rayes",
+      "title": "Designer",
+      "text": "Crystal View program is really one of the best programs I have used, because it is a program built on strong basis, you find comfort and flexibility in use with security, in addition to all the reports for accounting use or for the employer, which helps in making the right decision on time."
+    },
+    {
+      "name": "Mostafa Abbas",
+      "title": "Store Owner",
+      "text": "I have been working in the medical field since 2003 and I have used many programs, but when I used the Crystal View program, I did not find it easier to work and give me the appropriate reports and technical support that I find when I need it, starting from using this system, I always recommend it."
+    }
+  ]
+  },
+  "Contact": {
+    "company": "Crystal Soft",
+    "title": "Keep in Touch",
+    "addressTitle": "Our Address",
+    "address": "147 EL Hegaz St., EL Nozha, Heliopolis, Cairo - Egypt",
+    "emailTitle": "Email Us",
+    "callTitle": "Call Us"
+  },
+   "footer": {
+    "line1": "Crystal Soft ERP Solutions",
+    "line2_part1": "Copyright © 2001–2023",
+    "line2_part2": "Crystal Soft",
+    "line2_part3": "All rights reserved."
+  }
+}
+}

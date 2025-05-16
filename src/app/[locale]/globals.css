@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap');
+body {
+    font-family: 'Cairo', sans-serif !important;
+}
+#hero .carousel-container {
+    top: -27px !important;
+}
+#hero .slide::before {
+    content: "";
+    background-color: rgba(4, 12, 21, 0.3);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+.swiper-slide{
+  width: 638px !important;
+}
+[dir="rtl"] .about .content ul li {
+    padding-right: 28px !important;
+}
+[dir="rtl"] .about .content ul li i{
+   right: 0 !important;
+}
+[dir="rtl"] .navbar .getstarted{
+    margin-left: 0 !important;
+}
+[dir="rtl"] .navbar {
+   padding-right:20px;
+}
+[dir="rtl"] .why-us .accordion-list a {
+  padding-right: 0 !important;
+}
+[dir="rtl"] #footer .copy-soft2 {
+    text-align: start !important;
+}
+[dir="rtl"] #footer .social-links.copy-social{
+    text-align: end !important;
+}
