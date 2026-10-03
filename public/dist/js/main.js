@@ -144,11 +144,6 @@
   /**
    * Scroll with ofset on page load with hash links in the url
    */
-  const handleGoBack = () => {
-    const MAIN_APP_URL = process.env.NEXT_PUBLIC_MAIN_APP_URL || 'https://www.crystalviewerp.com';
-    window.location.href = `${MAIN_APP_URL}/`;
-  };
-
   window.addEventListener('load', () => {
     if (window.location.hash) {
       if (select(window.location.hash)) {
