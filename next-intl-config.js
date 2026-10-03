@@ -11,17 +11,17 @@ export default {
   // Define the domains if you're using domain-based internationalization
   // domains: [
   //   {
-  //     domain: 'example.com',
+  //     domain: 'http://localhost:3000/app',
   //     defaultLocale: 'en'
   //   },
   //   {
-  //     domain: 'example.ar',
+  //     domain: 'http://localhost:3000/app.ar',
   //     defaultLocale: 'ar'
   //   }
   // ],
   
   // Pages where next-intl integration is not needed
-  // pathnames: {
-  //   '/': '/'
-  // }
+    // pathnames: {
+    //   '/': '/app'
+    // }
 };

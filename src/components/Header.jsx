@@ -11,12 +11,16 @@ const RETURN_TO_KEY = 'crystal.returnTo';
 
 // Only a tenant's own ERP host may be returned to; anything else would turn
 // ?returnTo= into an open redirect. This site's own host is excluded.
+// Any depth of subdomain is a tenant: the ERP strips a leading `www.`, so
+// www.<alias>.crystalviewerp.com is the same tenant as <alias>.crystalviewerp.com.
+const TENANT_HOST = /^([a-z0-9-]+\.)+crystalviewerp\.com$/i;
+
 function safeReturnUrl(value) {
   if (!value) return null;
   try {
     const url = new URL(value);
     const isTenant = url.protocol === 'https:'
-      && /^[a-z0-9-]+\.crystalviewerp\.com$/i.test(url.hostname)
+      && TENANT_HOST.test(url.hostname)
       && url.hostname.toLowerCase() !== window.location.hostname.toLowerCase();
     const isLocalDev = process.env.NODE_ENV !== 'production'
       && (url.hostname === 'localhost' || url.hostname === '127.0.0.1');
@@ -29,15 +33,22 @@ function safeReturnUrl(value) {
 // Where the visitor came from: ?returnTo= sent by the ERP login page, else the
 // referrer. Kept in sessionStorage because switching language drops the query.
 function resolveLoginUrl() {
-  const fromQuery = safeReturnUrl(new URLSearchParams(window.location.search).get('returnTo'));
+  const rawQuery = new URLSearchParams(window.location.search).get('returnTo');
+  const fromQuery = safeReturnUrl(rawQuery);
   const fromReferrer = safeReturnUrl(document.referrer);
+  // A fresh arrival (returnTo present) replaces whatever an earlier tenant left
+  // in this tab, even when the new value is rejected — never fall back to
+  // another tenant's login page.
   let stored = null;
-  try { stored = safeReturnUrl(sessionStorage.getItem(RETURN_TO_KEY)); } catch {}
+  if (rawQuery === null) {
+    try { stored = safeReturnUrl(sessionStorage.getItem(RETURN_TO_KEY)); } catch {}
+  }
 
   const resolved = fromQuery || fromReferrer || stored;
-  if (resolved) {
-    try { sessionStorage.setItem(RETURN_TO_KEY, resolved); } catch {}
-  }
+  try {
+    if (resolved) sessionStorage.setItem(RETURN_TO_KEY, resolved);
+    else sessionStorage.removeItem(RETURN_TO_KEY);
+  } catch {}
   return resolved || MAIN_APP_URL;
 }
 
