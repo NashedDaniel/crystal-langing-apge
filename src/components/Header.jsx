@@ -2,12 +2,53 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
+import { useEffect, useState } from 'react';
 import { useLocale, useTranslations } from 'next-intl';
+//import Link from 'next/link';
+
+const MAIN_APP_URL = process.env.NEXT_PUBLIC_MAIN_APP_URL || 'https://www.crystalviewerp.com';
+const RETURN_TO_KEY = 'crystal.returnTo';
+
+// Only a tenant's own ERP host may be returned to; anything else would turn
+// ?returnTo= into an open redirect. This site's own host is excluded.
+function safeReturnUrl(value) {
+  if (!value) return null;
+  try {
+    const url = new URL(value);
+    const isTenant = url.protocol === 'https:'
+      && /^[a-z0-9-]+\.crystalviewerp\.com$/i.test(url.hostname)
+      && url.hostname.toLowerCase() !== window.location.hostname.toLowerCase();
+    const isLocalDev = process.env.NODE_ENV !== 'production'
+      && (url.hostname === 'localhost' || url.hostname === '127.0.0.1');
+    return isTenant || isLocalDev ? url.href : null;
+  } catch {
+    return null;
+  }
+}
+
+// Where the visitor came from: ?returnTo= sent by the ERP login page, else the
+// referrer. Kept in sessionStorage because switching language drops the query.
+function resolveLoginUrl() {
+  const fromQuery = safeReturnUrl(new URLSearchParams(window.location.search).get('returnTo'));
+  const fromReferrer = safeReturnUrl(document.referrer);
+  let stored = null;
+  try { stored = safeReturnUrl(sessionStorage.getItem(RETURN_TO_KEY)); } catch {}
+
+  const resolved = fromQuery || fromReferrer || stored;
+  if (resolved) {
+    try { sessionStorage.setItem(RETURN_TO_KEY, resolved); } catch {}
+  }
+  return resolved || MAIN_APP_URL;
+}
 
 export default function Header() {
     const t = useTranslations("Index");
 
-    const locale = useLocale(); 
+    const locale = useLocale();
+
+    // Starts at the default so server and client render the same markup.
+    const [loginUrl, setLoginUrl] = useState(MAIN_APP_URL);
+    useEffect(() => { setLoginUrl(resolveLoginUrl()); }, []);
     
   return (
     <header id="header" className="fixed-top">
@@ -53,9 +94,7 @@ export default function Header() {
               </ul>
             </li>
             <li>
-             <Link href="https://localhost:5174/" className="getstarted scrollto">
-                {t("LOGIN")}
-              </Link>
+            <a href={loginUrl} className="getstarted scrollto" > {t("LOGIN")} </a>
             </li>
           </ul>
           <i className="bi bi-list mobile-nav-toggle"></i>
