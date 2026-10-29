@@ -1,7 +1,7 @@
-# CrystalView ERP public site (www.crystalviewerp.com).
+# CrystalView ERP public site (about.crystalviewerp.com).
 # Search engines and AI search/answer crawlers may read it so CrystalView can be found
-# and quoted with a link; AI training crawlers may not. The ERP itself lives on the
-# company subdomains, which disallow all crawling.
+# and quoted with a link; AI training crawlers may not. The ERP itself (www and the
+# company subdomains) disallows all crawling.
 #
 # Content Signals (https://contentsignals.org): search = build a search index and show
 # links/snippets; ai-input = use pages as live input for an AI answer; ai-train = train
@@ -26,4 +26,4 @@ Content-Signal: search=yes, ai-input=yes, ai-train=no
 Allow: /
 Disallow: /api/
 
-Sitemap: https://www.crystalviewerp.com/sitemap.xml
+Sitemap: https://about.crystalviewerp.com/sitemap.xml
