@@ -5,3 +5,9 @@
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
+# Tells crawlers and agents where the sitemap is without fetching robots.txt first
+# (RFC 8288 Link header; rel="sitemap" is what agent-readiness scanners look for).
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Link = '</sitemap.xml>; rel="sitemap"; type="application/xml"'

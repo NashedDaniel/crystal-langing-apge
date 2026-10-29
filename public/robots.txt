@@ -1,0 +1,29 @@
+# CrystalView ERP public site (www.crystalviewerp.com).
+# Search engines and AI search/answer crawlers may read it so CrystalView can be found
+# and quoted with a link; AI training crawlers may not. The ERP itself lives on the
+# company subdomains, which disallow all crawling.
+#
+# Content Signals (https://contentsignals.org): search = build a search index and show
+# links/snippets; ai-input = use pages as live input for an AI answer; ai-train = train
+# or fine-tune models. Absent signals mean no preference.
+
+# AI training crawlers: not allowed.
+User-agent: GPTBot
+User-agent: ClaudeBot
+User-agent: anthropic-ai
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+User-agent: CCBot
+User-agent: Bytespider
+User-agent: Meta-ExternalAgent
+User-agent: cohere-training-data-crawler
+Disallow: /
+
+# Everyone else, including AI search crawlers (OAI-SearchBot, ChatGPT-User,
+# Claude-SearchBot, Claude-User, PerplexityBot): the public pages.
+User-agent: *
+Content-Signal: search=yes, ai-input=yes, ai-train=no
+Allow: /
+Disallow: /api/
+
+Sitemap: https://www.crystalviewerp.com/sitemap.xml
